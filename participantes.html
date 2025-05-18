@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crear Participante</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex flex-col min-h-screen bg-gradient-to-br from-blue-50 to-white">
+  <header class="bg-blue-700 text-white p-4 text-xl font-bold text-center relative">
+    Panel de Administración
+    <label id="openSidebar"
+      class="absolute left-4 top-1/2 -translate-y-1/2 md:hidden bg-blue-600 p-2 rounded text-white cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </label>
+  </header>
+
+  <div class="flex flex-1">
+    <main class="flex-1 p-8">
+      <nav class="text-sm text-gray-500 mb-4">Inicio / Participantes / Crear</nav>
+
+      <div class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-8 mx-auto">
+        <h1 class="text-3xl font-bold text-blue-700 mb-6 text-center">Crear Participante</h1>
+
+        <form id="formParticipante" class="mx-auto max-w-sm">
+          <div class="mb-5">
+            <label class="mb-2 block text-sm font-medium text-gray-900">Identificación</label>
+            <input id="identificacion" type="text"
+              class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500" />
+          </div>
+          <div class="mb-5">
+            <label class="mb-2 block text-sm font-medium text-gray-900">Nombres</label>
+            <input id="nombres" type="text"
+              class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500" />
+          </div>
+          <div class="mb-5">
+            <label class="mb-2 block text-sm font-medium text-gray-900">Apellidos</label>
+            <input id="apellidos" type="text"
+              class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500" />
+          </div>
+          <div class="mb-5">
+            <label class="mb-2 block text-sm font-medium text-gray-900">Email</label>
+            <input id="email" type="email"
+              class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500" />
+          </div>
+          <div class="mb-5">
+            <label class="mb-2 block text-sm font-medium text-gray-900">Celular</label>
+            <input id="celular" type="tel"
+              class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500" />
+          </div>
+          <div class="text-center">
+            <button type="submit"
+              class="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700">Guardar
+              Participante</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <aside id="sidebar"
+      class="fixed inset-y-0 right-0 z-30 w-64 bg-gray-100 border-l p-6 space-y-4 transform translate-x-full transition-transform duration-200 ease-in-out md:static md:translate-x-0 md:block">
+      <nav class="space-y-2">
+        <a href="index.html" class="block p-2 hover:bg-gray-200 rounded">Crear proyecto</a>
+        <a href="proyectos.html" class="block p-2 hover:bg-gray-200 rounded">Listado de proyectos</a>
+        <a href="buscar.html" class="block p-2 hover:bg-gray-200 rounded">Buscar proyecto</a>
+        <a href="participantes.html" class="block p-2 bg-blue-100 rounded hover:bg-blue-200">Participantes</a>
+        <a href="asignacion.html" class="block p-2 hover:bg-gray-200 rounded">Asignación de proyectos</a>
+      </nav>
+      <button id="closeSidebar"
+        class="md:hidden mt-6 w-full bg-blue-700 text-white py-2 rounded block text-center">Cerrar</button>
+    </aside>
+
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-30 z-20 hidden md:hidden"></div>
+  </div>
+
+  <footer class="bg-blue-700 text-white text-center p-4">Proyectos Webpage - Jose Fernandez</footer>
+
+  <script>
+    document.getElementById('formParticipante').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const participante = {
+        identificacion: document.getElementById('identificacion').value,
+        nombres: document.getElementById('nombres').value,
+        apellidos: document.getElementById('apellidos').value,
+        email: document.getElementById('email').value,
+        celular: document.getElementById('celular').value
+      };
+      guardarParticipante(participante);
+      alert('Participante guardado');
+      this.reset();
+    });
+
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("sidebarOverlay");
+    const openBtn = document.getElementById("openSidebar");
+    const closeBtn = document.getElementById("closeSidebar");
+
+    function openSidebar() {
+      sidebar.classList.remove("translate-x-full");
+      overlay.classList.remove("hidden");
+    }
+
+    function closeSidebar() {
+      sidebar.classList.add("translate-x-full");
+      overlay.classList.add("hidden");
+    }
+
+    openBtn.addEventListener("click", openSidebar);
+    closeBtn.addEventListener("click", closeSidebar);
+    overlay.addEventListener("click", closeSidebar);
+  </script>
+</body>
+
+</html>

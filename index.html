@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Crear Proyecto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex flex-col min-h-screen bg-gradient-to-br from-blue-50 to-white">
+    <header class="bg-blue-700 text-white p-4 text-xl font-bold text-center relative">
+        Panel de Administración
+        <label for="sidebar-toggle"
+            class="absolute left-4 top-1/2 -translate-y-1/2 md:hidden bg-blue-600 p-2 rounded text-white cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </label>
+    </header>
+
+    <input type="checkbox" id="sidebar-toggle" class="peer hidden" />
+
+    <div class="flex flex-1 flex-col md:flex-row">
+        <main class="flex-1 p-8">
+            <nav class="text-sm text-gray-500 mb-4">Inicio / Proyectos / Crear</nav>
+
+            <div class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-8 mx-auto">
+                <h1 class="text-3xl font-bold text-blue-700 mb-6 text-center">Crear Proyecto</h1>
+
+                <form class="mx-auto max-w-sm">
+                    <div class="mb-5">
+                        <label for="idProyecto" 
+                            class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">ID Proyecto</label>
+                        <input type="text" id="idProyecto"
+                            class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                            required />
+                    </div>
+                    <div class="mb-5">
+                        <label for="nombre"
+                            class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
+                        <input type="name" id="nombre"
+                            class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                            required />
+                    </div>
+                    <div class="mb-5">
+                        <label for="descripcion"
+                            class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Descripción</label>
+                        <textarea type="text" rows="4" id="descripcion"
+                            class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                            required /></textarea>
+                    </div>
+                    <div class="mb-5">
+                        <label for="fechaInicio"
+                            class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Fecha Inicio</label>
+                        <input type="date" id="fechaInicio"
+                            class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                            required />
+                    </div>
+                    <div class="mb-5">
+                        <label for="fechaFinal"
+                            class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Fecha Final</label>
+                        <input type="date" id="fechaFinal"
+                            class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                            required />
+                    </div>
+                    <div class="mb-5">
+                        <label for="valor"
+                            class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Valor</label>
+                        <input type="number" id="valor"
+                            class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                            required />
+                    </div>
+                    <div class="flex justify-center">
+                        <button type="submit"
+                            class="w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 focus:outline-none sm:w-auto dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <aside class="fixed inset-y-0 right-0 z-30 w-64 bg-gray-100 border-l p-6 space-y-4 transform translate-x-full transition-transform duration-200 ease-in-out
+            peer-checked:translate-x-0 peer-checked:block
+            md:static md:translate-x-0 md:block md:w-64 md:bg-gray-100 md:border-l md:p-6 md:space-y-4
+            hidden">
+            <nav class="space-y-2">
+                <a href="index.html" class="block p-2 bg-blue-100 rounded hover:bg-blue-200">Crear proyecto</a>
+                <a href="proyectos.html" class="block p-2 hover:bg-gray-200 rounded">Listado de proyectos</a>
+                <a href="buscar.html" class="block p-2 hover:bg-gray-200 rounded">Buscar proyecto</a>
+                <a href="participantes.html" class="block p-2 hover:bg-gray-200 rounded">Participantes</a>
+                <a href="asignacion.html" class="block p-2 hover:bg-gray-200 rounded">Asignación de proyectos</a>
+            </nav>
+            <label for="sidebar-toggle"
+                class="md:hidden mt-6 w-full bg-blue-700 text-white py-2 rounded block text-center cursor-pointer">Cerrar</label>
+        </aside>
+        <label for="sidebar-toggle"
+            class="fixed inset-0 bg-black bg-opacity-30 z-20 hidden peer-checked:block md:hidden cursor-pointer"></label>
+    </div>
+
+    <footer class="bg-blue-700 text-white text-center p-4">Proyectos Webpage - Jose Fernandez</footer>
+    <script>
+        const toggle = document.getElementById("sidebar-toggle");
+        const sidebar = document.querySelector("aside");
+        const overlay = document.querySelector("label[for='sidebar-toggle']:not(.absolute)");
+
+        const openButton = document.querySelector("label[for='sidebar-toggle'].absolute");
+        const closeButton = document.querySelector("label[for='sidebar-toggle'].md\\:hidden.mt-6");
+
+        function openSidebar() {
+            sidebar.classList.remove("translate-x-full", "hidden");
+            overlay.classList.remove("hidden");
+        }
+
+        function closeSidebar() {
+            sidebar.classList.add("translate-x-full", "hidden");
+            overlay.classList.add("hidden");
+        }
+
+        openButton.addEventListener("click", openSidebar);
+        closeButton.addEventListener("click", closeSidebar);
+        overlay.addEventListener("click", closeSidebar);
+    </script>
+</body>
+
+</html>
